@@ -1,7 +1,8 @@
 Build project
 =========
 
-* `docker-compose up`
+1. `docker-compose up`
+2. `composer install` in docker container
 
 
 Development
