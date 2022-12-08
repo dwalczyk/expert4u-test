@@ -1,0 +1,20 @@
+services:
+    _defaults:
+        autowire: false
+        autoconfigure: false
+
+
+    browser:
+        class: 'Symfony\Component\BrowserKit\HttpBrowser'
+
+    crawler:
+        class: 'App\Service\Crawler'
+        arguments:
+            $browser: '@browser'
+
+
+    App\Command\ParseWebsiteCommand:
+        arguments:
+            $crawler: '@crawler'
+        tags:
+            - { name: 'console.command', command: 'app:parse-website' }

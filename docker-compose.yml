@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  php:
+    container_name: expert4you_php
+    build:
+      context: ./
+      dockerfile: ./docker/php/Dockerfile
+    ports:
+      - '9000:9000'
+    volumes:
+      - .:/var/www/html
+    networks:
+      - expert4you_network
+
+networks:
+  expert4you_network:
