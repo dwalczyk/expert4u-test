@@ -38,7 +38,7 @@ final class Crawler
         $elements = $site->filterXPath(\sprintf('//*[@class="%s"]', $findClass))->each(function (DomCrawler $parentCrawler) {
             $loopElements = [];
             foreach ($parentCrawler->getIterator() as $item) {
-                if (isset($item->tagName) && isset($item->textContent)) {
+                if (isset($item->tagName, $item->textContent)) {
                     $loopElements[] = new CrawlerResponseElement($item->tagName, $item->textContent);
                 }
             }
